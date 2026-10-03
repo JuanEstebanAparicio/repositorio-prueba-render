@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi primer despliegue en Render</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <p class="status"><span class="dot" aria-hidden="true"></span>Live en Render</p>
+
+    <h1>Este sitio se publicó solo.</h1>
+    <p class="lead">Hice un <code>git push</code> y Render hizo el resto: construyó la imagen, la desplegó y me dio esta dirección pública.</p>
+
+    <section aria-labelledby="pasos">
+      <h2 id="pasos">Lo que pasó entre el push y esta página</h2>
+      <ol class="pasos">
+        <li>
+          <strong>Push a GitHub</strong>
+          <span>Subí <code>index.html</code>, <code>style.css</code> y el <code>Dockerfile</code> al repositorio.</span>
+        </li>
+        <li>
+          <strong>Render construye</strong>
+          <span>Detecta el Dockerfile y arma la imagen con nginx.</span>
+        </li>
+        <li>
+          <strong>Render publica</strong>
+          <span>Arranca el contenedor y detecta el puerto abierto.</span>
+        </li>
+        <li>
+          <strong>La URL responde</strong>
+          <span>Cualquier persona con el enlace puede ver esta página.</span>
+        </li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>Hecho por <strong>Juan</strong> para la actividad de despliegue automático.</p>
+      <p class="hora">Página cargada el <time id="fecha"></time></p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("fecha").textContent =
+      new Date().toLocaleString("es-CO", { dateStyle: "long", timeStyle: "short" });
+  </script>
+</body>
+</html>

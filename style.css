@@ -1,0 +1,129 @@
+:root {
+  --fondo: #eef2f7;
+  --tinta: #14213d;
+  --tinta-suave: #4a5775;
+  --acento: #2f5bea;
+  --vivo: #1f9d6b;
+  --linea: #c9d3e3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 2rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--vivo);
+  border-radius: 999px;
+  color: var(--vivo);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--vivo);
+  animation: pulso 2s ease-out infinite;
+}
+
+@keyframes pulso {
+  0%   { box-shadow: 0 0 0 0 rgba(31, 157, 107, 0.5); }
+  100% { box-shadow: 0 0 0 0.7rem rgba(31, 157, 107, 0); }
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 0 0 3.5rem;
+  font-size: 1.15rem;
+  color: var(--tinta-suave);
+}
+
+h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+code {
+  padding: 0.1rem 0.4rem;
+  background: #dfe6f2;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.pasos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+  border-left: 2px solid var(--linea);
+}
+
+.pasos li {
+  position: relative;
+  padding: 0 0 1.75rem 2rem;
+  counter-increment: paso;
+}
+
+.pasos li:last-child { padding-bottom: 0; }
+
+.pasos li::before {
+  content: counter(paso);
+  position: absolute;
+  left: -0.95rem;
+  top: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--acento);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pasos strong { display: block; font-size: 1.05rem; }
+.pasos span { color: var(--tinta-suave); }
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--linea);
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+}
+
+footer p { margin: 0 0 0.25rem; }
+
+a:focus-visible, button:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; }
+}
